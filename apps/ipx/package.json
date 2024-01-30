@@ -1,0 +1,23 @@
+{
+  "name": "@omero/ipx",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "André Vandal <me@andrevandal.dev>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "h3": "^1.10.1",
+    "ipx": "^3.0.0",
+    "listhen": "^1.6.0",
+    "consola": "^3.2.3"
+  }
+}

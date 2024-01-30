@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "docker:ipx:build": "docker build . --target ipx --tag ipx:latest",
+    "docker:ipx:prepare": "docker tag ipx us-east1-docker.pkg.dev/vandal-services/omero/ipx",
+    "docker:ipx:push": "docker push us-east1-docker.pkg.dev/vandal-services/omero/ipx",
+    "docker:ipx:deploy": "docker build . --target ipx --tag ipx:latest && docker tag ipx us-east1-docker.pkg.dev/vandal-services/omero/ipx && docker push us-east1-docker.pkg.dev/vandal-services/omero/ipx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
