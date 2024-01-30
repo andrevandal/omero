@@ -1,8 +1,8 @@
 version: "3.7"
 
-# networks:
-#   traefik_public:
-#     external: true
+networks:
+  traefik_public:
+    external: true
 
 x-default-opts: 
   &default-opts
@@ -19,11 +19,9 @@ services:
       tags:
         - "ipx:lastest"
     image: ipx
-    # networks:
-    #   - traefik_public
+    networks:
+      - traefik_public
     restart: unless-stopped
-    ports:
-      - "3000:3000"
     environment:
       - TZ=America/Sao_Paulo
       - IPX_HTTP_DOMAINS=files.vandal.services
