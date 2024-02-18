@@ -4,17 +4,49 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "pnpx simple-git-hooks",
+    "format": "prettier --write --cache .",
+    "lint": "eslint --cache .",
     "docker:ipx:build": "docker build . --target ipx --tag ipx:latest",
     "docker:ipx:prepare": "docker tag ipx us-east1-docker.pkg.dev/vandal-services/omero/ipx",
     "docker:ipx:push": "docker push us-east1-docker.pkg.dev/vandal-services/omero/ipx",
     "docker:ipx:deploy": "docker build . --target ipx --tag ipx:latest && docker tag ipx us-east1-docker.pkg.dev/vandal-services/omero/ipx && docker push us-east1-docker.pkg.dev/vandal-services/omero/ipx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:api": "pnpm -r --parallel --filter='./apps/api' run dev",
+    "build": "pnpm -r --filter='./packages/*' run build",
+    "api": "pnpm --filter='./apps/api'"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --concurrent false"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --cache --ignore-unknown"
+    ],
+    "{packages,apps}/**/*.ts": [
+      "eslint --cache --fix"
+    ]
+  },
+  "packageManager": "pnpm@8.14.2",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "André Vandal <me@andrevandal.dev>",
+  "license": "MIT",
   "engines": {
     "node": ">=20.10.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "eslint": "^8.56.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-import": "npm:eslint-plugin-i@^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-regexp": "^2.2.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "simple-git-hooks": "^2.9.0"
+  }
 }

@@ -4,16 +4,15 @@ networks:
   traefik_public:
     external: true
 
-x-default-opts: 
-  &default-opts
+x-default-opts: &default-opts
   logging:
     options:
-      max-size: "10m" 
+      max-size: "10m"
 
 services:
   ipx:
     <<: *default-opts
-    build: 
+    build:
       context: .
       target: ipx
       tags:

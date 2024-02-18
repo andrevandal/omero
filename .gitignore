@@ -3,3 +3,13 @@ dist/
 .env
 .env.*
 !.env.example
+/.vscode/
+temp
+.eslintcache
+node_modules
+*.log*
+.nitro
+.cache
+.output
+.env
+dist

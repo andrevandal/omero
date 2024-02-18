@@ -2,7 +2,7 @@
 
 Omero é um CMS de sites personalizados com finalidade de ser simples.
 
-Como este respositório é um monorepo, cada site será um *app*.
+Como este respositório é um monorepo, cada site será um _app_.
 
 Há outros apps complementares aos sites, como:
 
