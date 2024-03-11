@@ -1,6 +1,6 @@
 {
-  "id": "ec116cd0-7d72-452b-bb17-52c5da566278",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "2f8efbd7-0c1a-411a-ad28-dfa6f25338b8",
+  "prevId": "ec116cd0-7d72-452b-bb17-52c5da566278",
   "version": "5",
   "dialect": "pg",
   "tables": {
@@ -623,6 +623,12 @@
         "published_at": {
           "name": "published_at",
           "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "content": {
+          "name": "content",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
