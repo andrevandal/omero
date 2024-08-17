@@ -1,47 +1,62 @@
-# Welcome to Remix + Cloudflare!
+# Omero
 
-- 📖 [Remix docs](https://remix.run/docs)
-- 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
+<div style="text-align: center;">
+  <img src="./logo.svg" alt="Omero Logo" width="350" />
+</div>
 
-## Development
+Omero é um CMS de sites personalizados com finalidade de ser simples.
 
-Run the dev server:
+## Desenvolvimento
 
-```sh
-npm run dev
-```
-
-To run Wrangler:
+Execute o seguinte comando para iniciar o desenvolvimento:
 
 ```sh
-npm run build
-npm run start
+pnpm run dev
 ```
 
-## Typegen
-
-Generate types for your Cloudflare bindings in `wrangler.toml`:
+Para executar via Wrangler, basta executar os seguintes comandos:
 
 ```sh
-npm run typegen
+pnpm run build
+pnpm run start
 ```
 
-You will need to rerun typegen whenever you make changes to `wrangler.toml`.
+## Cloudflare Bindings
+
+O ambiente planejado para essa aplicação é o Cloudflare Pages.
+
+Dessa forma, pode ser interessante utilizar alguns serviços do Cloudflare nesta aplicação.
+
+Assim, será necessário configurar os bindings no `wrangler.toml`.
+
+Para a aplicação ter os bindings configurados, basta executar o seguinte comando:
+
+```sh
+pnpm tun typegen
+```
 
 ## Deployment
 
-First, build your app for production:
+Primeiro, builde a aplicação para produção:
 
 ```sh
-npm run build
+pnpm run build
 ```
 
-Then, deploy your app to Cloudflare Pages:
+Depois, para subir sua aplicação para Cloudflare Pages, execute o comando a seguir:
 
 ```sh
 npm run deploy
 ```
 
-## Styling
+## Estilo
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+Estamos usando [Tailwind CSS](https://tailwindcss.com/) junto do [Shadcn UI](https://ui.shadcn.com/).
+
+## Contribuição
+
+Constribuições são bem-vindas! 🎉
+
+Sinta-se livre para abrir uma issue ou submeter um pull request.
+
+Caso deseje conversar antes, entre em contato comigo.
