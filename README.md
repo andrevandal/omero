@@ -1,7 +1,7 @@
 # Omero
 
 <div style="text-align: center;">
-  <img src="./logo.svg" alt="Omero Logo" width="350" />
+  <img src="./public/logo.svg" alt="Omero Logo" width="350" />
 </div>
 
 Omero é um CMS de sites personalizados com finalidade de ser simples.
