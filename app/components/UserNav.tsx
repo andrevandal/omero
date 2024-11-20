@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react'
 import { Avatar, AvatarFallback } from './ui/avatar'
 import { Button } from './ui/button'
 import {
@@ -8,11 +9,11 @@ import {
   DropdownMenuSeparator
 } from './ui/dropdown-menu'
 
-const UserNav = () => {
+const UserNav = ({ className }: { className?: string }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" className={className}>
           <Avatar className="h-8 w-8 border">
             <AvatarFallback>AV</AvatarFallback>
           </Avatar>
@@ -22,7 +23,9 @@ const UserNav = () => {
         <DropdownMenuItem>Profile</DropdownMenuItem>
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Logout</DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to={'/logout'}>Logout</Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

@@ -1,4 +1,14 @@
 import { Outlet } from '@remix-run/react'
+import { extractBaseUrlFromContext } from '@/lib/head'
+import { json, LoaderFunctionArgs } from '@remix-run/cloudflare'
+
+export const loader = ({ context }: LoaderFunctionArgs) => {
+  const baseUrl = extractBaseUrlFromContext(context)
+
+  return json({
+    baseUrl
+  })
+}
 
 const AuthLayout = () => {
   return (

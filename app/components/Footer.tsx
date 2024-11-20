@@ -4,8 +4,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-muted border-t flex items-center justify-between h-14 px-4 sm:px-6">
-      <div className="text-xs text-muted-foreground container">
+    <footer className="border-t flex items-center justify-between h-14 px-4 sm:px-6">
+      <div className="text-xs text-foreground container">
         &copy; {currentYear}{' '}
         <Link to="https://andrevandal.dev">André Vandal</Link>. All rights
         reserved.

@@ -10,6 +10,16 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Link } from '@remix-run/react'
+import { MetaFunction } from '@remix-run/cloudflare'
+import { MetaFactory } from '@/lib/head'
+import { loader as AuthLoader } from '@/routes/_guest'
+
+export const meta: MetaFunction<typeof AuthLoader> = ({ data }) =>
+  MetaFactory({
+    baseUrl: data?.baseUrl,
+    title: 'Forgot Password',
+    description: 'Enter your email to reset your password'
+  })
 
 const ForgotPasswordPage = () => {
   return (
