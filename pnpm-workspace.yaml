@@ -1,0 +1,6 @@
+engineStrict: true
+packageManagerStrictVersion: true
+linkWorkspacePackages: true
+packages:
+  - "packages/*"
+  - "apps/**"

@@ -1,0 +1,291 @@
+[
+  {
+    "id": "pedrohenri",
+    "name": "PedroHenri",
+    "slug": "pedrohenridesign.com.br",
+    "owner": "pedro",
+    "members": [
+      { "userId": "pedro", "role": "owner" },
+      { "userId": "andre", "role": "admin" }
+    ],
+    "settings": {
+      "timezone": "America/Sao_Paulo",
+      "defaultLanguage": "pt-br",
+      "allowComments": true,
+      "moderateComments": true
+    },
+    "metadata": {
+      "website": "https://pedrohenridesign.com.br",
+      "description": "Design studio especializado em identidade visual e interfaces digitais",
+      "industry": "Design & Creative Services",
+      "location": "Brazil"
+    },
+    "languages": [
+      { "code": "pt-br", "isDefault": true },
+      { "code": "en", "isDefault": false }
+    ],
+    "tags": [
+      {
+        "key": "identidade-visual",
+        "customFields": {
+          "showcase": {
+            "type": "number",
+            "required": false
+          },
+          "cta_text": { "type": "text", "required": false },
+          "features_title": {
+            "type": "text",
+            "required": false
+          },
+          "features": {
+            "type": "list",
+            "required": false,
+            "schema": {
+              "iconName": {
+                "type": "select",
+                "options": [
+                  "apresentacao",
+                  "codificacao",
+                  "concepcao",
+                  "descoberta",
+                  "entrega",
+                  "instagram",
+                  "linkedin",
+                  "mapeamento",
+                  "otimizacao-seo",
+                  "prototipo"
+                ]
+              },
+              "title": { "type": "text" },
+              "description": { "type": "text" }
+            }
+          },
+          "meta_title": {
+            "type": "text",
+            "required": false
+          },
+          "meta_description": {
+            "type": "textarea",
+            "required": false
+          },
+          "og_tags": {
+            "type": "object",
+            "required": false,
+            "properties": {
+              "title": { "type": "text" },
+              "description": { "type": "textarea" },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": { "type": "text" },
+                  "width": { "type": "text" },
+                  "height": { "type": "text" },
+                  "alt": { "type": "text" }
+                }
+              }
+            }
+          },
+          "schema_markup": {
+            "type": "object",
+            "required": false
+          }
+        }
+      },
+      {
+        "key": "ui-design",
+        "customFields": {
+          "showcase": {
+            "type": "number",
+            "required": false
+          },
+          "cta_text": { "type": "text", "required": false },
+          "features_title": {
+            "type": "text",
+            "required": false
+          },
+          "features": {
+            "type": "list",
+            "required": false,
+            "schema": {
+              "iconName": {
+                "type": "select",
+                "options": [
+                  "apresentacao",
+                  "codificacao",
+                  "concepcao",
+                  "descoberta",
+                  "entrega",
+                  "instagram",
+                  "linkedin",
+                  "mapeamento",
+                  "otimizacao-seo",
+                  "prototipo"
+                ]
+              },
+              "title": { "type": "text" },
+              "description": { "type": "text" }
+            }
+          },
+          "meta_title": {
+            "type": "text",
+            "required": false
+          },
+          "meta_description": {
+            "type": "textarea",
+            "required": false
+          },
+          "og_tags": {
+            "type": "object",
+            "required": false,
+            "properties": {
+              "title": { "type": "text" },
+              "description": { "type": "textarea" },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": { "type": "text" },
+                  "width": { "type": "text" },
+                  "height": { "type": "text" },
+                  "alt": { "type": "text" }
+                }
+              }
+            }
+          },
+          "schema_markup": {
+            "type": "object",
+            "required": false
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "andrevandal",
+    "name": "AndreVandal.dev",
+    "slug": "andrevandal.dev",
+    "owner": "andre",
+    "members": [
+      { "userId": "andre", "role": "owner" },
+      { "userId": "pedro", "role": "member" }
+    ],
+    "settings": {
+      "timezone": "America/Sao_Paulo",
+      "defaultLanguage": "en",
+      "allowComments": true,
+      "moderateComments": false
+    },
+    "metadata": {
+      "website": "https://andrevandal.dev",
+      "description": "Blog técnico sobre desenvolvimento web, React, TypeScript e arquitetura de software",
+      "industry": "Software Development",
+      "location": "Brazil"
+    },
+    "languages": [
+      { "code": "en", "isDefault": true },
+      { "code": "pt-br", "isDefault": false }
+    ],
+    "tags": [
+      {
+        "key": "desenvolvimento",
+        "customFields": {
+          "difficulty": {
+            "type": "select",
+            "options": ["beginner", "intermediate", "advanced"],
+            "required": false
+          },
+          "estimated_reading_time": {
+            "type": "number",
+            "required": false
+          },
+          "tech_stack": {
+            "type": "list",
+            "required": false,
+            "schema": { "name": { "type": "text" } }
+          },
+          "meta_title": {
+            "type": "text",
+            "required": false
+          },
+          "meta_description": {
+            "type": "textarea",
+            "required": false
+          },
+          "og_tags": {
+            "type": "object",
+            "required": false,
+            "properties": {
+              "title": { "type": "text" },
+              "description": { "type": "textarea" },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": { "type": "text" },
+                  "width": { "type": "text" },
+                  "height": { "type": "text" },
+                  "alt": { "type": "text" }
+                }
+              }
+            }
+          },
+          "schema_markup": {
+            "type": "object",
+            "required": false
+          }
+        }
+      },
+      {
+        "key": "tutorials",
+        "customFields": {
+          "difficulty": {
+            "type": "select",
+            "options": ["beginner", "intermediate", "advanced"],
+            "required": false
+          },
+          "estimated_reading_time": {
+            "type": "number",
+            "required": false
+          },
+          "prerequisites": {
+            "type": "list",
+            "required": false,
+            "schema": { "name": { "type": "text" } }
+          },
+          "github_repo": {
+            "type": "text",
+            "required": false
+          },
+          "demo_url": { "type": "text", "required": false },
+          "meta_title": {
+            "type": "text",
+            "required": false
+          },
+          "meta_description": {
+            "type": "textarea",
+            "required": false
+          },
+          "og_tags": {
+            "type": "object",
+            "required": false,
+            "properties": {
+              "title": { "type": "text" },
+              "description": { "type": "textarea" },
+              "image": {
+                "type": "object",
+                "properties": {
+                  "src": { "type": "text" },
+                  "width": { "type": "text" },
+                  "height": { "type": "text" },
+                  "alt": { "type": "text" }
+                }
+              }
+            }
+          },
+          "schema_markup": {
+            "type": "object",
+            "required": false
+          }
+        }
+      }
+    ]
+  }
+]

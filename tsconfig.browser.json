@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.options.json",
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable"]
+  }
+}

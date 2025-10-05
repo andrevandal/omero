@@ -1,0 +1,5 @@
+// https://github.com/DavidAnson/markdownlint/blob/main/style/prettier.json
+{
+  "extends": "markdownlint/style/prettier",
+  "no-inline-html": false
+}

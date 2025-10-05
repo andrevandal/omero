@@ -1,0 +1,38 @@
+{
+  "name": "@omero/auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": "./dist/index.js"
+    },
+    "./auth.client.js": {
+      "types": "./dist/auth.client.d.ts",
+      "node": "./dist/auth.client.js"
+    },
+    "./auth.server.js": {
+      "types": "./dist/auth.server.d.ts",
+      "node": "./dist/auth.server.js"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.0",
+  "dependencies": {
+    "@omero/database": "workspace:^",
+    "@omero/env": "workspace:^",
+    "@omero/notifications": "workspace:^",
+    "@omero/schemas": "workspace:^",
+    "@omero/utils": "workspace:^",
+    "better-auth": "^1.3.26"
+  }
+}

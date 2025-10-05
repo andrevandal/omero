@@ -1,0 +1,52 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "rootDir": "./src",
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "moduleResolution": "nodenext",
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      ":commons/*": ["./src/commons/*"],
+      ":enums/*": ["./src/enums/*"],
+      ":env*": ["./src/env.js"],
+      "@omero/env": ["../env/src/index.ts"],
+      "@omero/env/*": ["../env/src/*"],
+      "@omero/database": ["../database/src/index.ts"],
+      "@omero/database/*": ["../database/src/*"],
+      "@omero/notifications": ["../notifications/src/index.tsx"],
+      "@omero/notifications/*": ["../notifications/src/*"],
+      "@omero/schemas": ["../schemas/src/index.ts"],
+      "@omero/schemas/*": ["../schemas/src/*"],
+      "@omero/utils": ["../utils/src/index.ts"],
+      "@omero/utils/*": ["../utils/src/*"]
+    }
+  },
+  "include": [
+    "src",
+    "../env/**/*",
+    "../database/**/*",
+    "../notifications/**/*",
+    "../schemas/**/*",
+    "../utils/**/*"
+  ],
+  "references": [
+    {
+      "path": "../env"
+    },
+    {
+      "path": "../database"
+    },
+    {
+      "path": "../notifications"
+    },
+    {
+      "path": "../schemas"
+    },
+    {
+      "path": "../utils"
+    }
+  ]
+}

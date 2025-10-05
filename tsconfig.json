@@ -1,0 +1,41 @@
+{
+  "extends": "./tsconfig.options.json",
+  "includes": [
+    "/vitest.config.ts"
+  ],
+  "references": [
+    {
+      "path": "apps/client"
+    },
+    {
+      "path": "apps/core"
+    },
+    {
+      "path": "apps/images"
+    },
+    {
+      "path": "packages/auth"
+    },
+    {
+      "path": "packages/custom-fields"
+    },
+    {
+      "path": "packages/database"
+    },
+    {
+      "path": "packages/env"
+    },
+    {
+      "path": "packages/notifications"
+    },
+    {
+      "path": "packages/schemas"
+    },
+    {
+      "path": "packages/types"
+    },
+    {
+      "path": "packages/utils"
+    }
+  ]
+}

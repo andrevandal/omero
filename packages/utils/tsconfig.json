@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "rootDir": "./src",
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "moduleResolution": "nodenext",
+    "paths": {
+      "@omero/env": ["../env/src/index.ts"],
+      "@omero/env/*": ["../env/src/*"]
+    }
+  },
+  "include": ["src", "../env/**/*"],
+  "references": [
+    {
+      "path": "../env"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "extends": "tsconfig-moon/tsconfig.projects.json",
+  "compilerOptions": {
+    /* Enviroment */
+    "lib": [
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "ESNext.Array",
+      "ESNext.Intl",
+      "ESNext.Symbol"
+    ],
+    "useDefineForClassFields": true,
+
+    /* Linting */
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "andre",
+    "name": "André Vandal",
+    "email": "andrevandal@omero.com",
+    "password": "andre123",
+    "preferredLanguage": "en"
+  },
+  {
+    "id": "pedro",
+    "name": "Pedro Henrique",
+    "email": "pedrohenrique@pedrohenridesign.com.br",
+    "password": "pedro123",
+    "preferredLanguage": "pt-br"
+  }
+]

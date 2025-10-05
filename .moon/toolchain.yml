@@ -1,0 +1,7 @@
+node:
+  packageManager: "pnpm"
+  inferTasksFromScripts: true
+typescript:
+  syncProjectReferencesToPaths: true
+  syncProjectReferences: true
+  includeProjectReferenceSources: true

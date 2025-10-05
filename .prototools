@@ -1,0 +1,7 @@
+node = "~24"
+pnpm = "~10"
+moon = "^1.31"
+
+[settings]
+auto-install = true
+auto-clean = true

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "cafe-aurora-logo.svg",
+    "type": "image",
+    "url": "/assets/portfolio/cafe-aurora-logo.svg",
+    "size": 15420,
+    "title": "Logotipo Café Aurora",
+    "altText": "Novo logotipo criado para a cafeteria premium Café Aurora",
+    "category": "portfolio"
+  },
+  {
+    "name": "techstart-branding.jpg",
+    "type": "image",
+    "url": "/assets/portfolio/techstart-branding.jpg",
+    "size": 892340,
+    "title": "TechStart Brand System",
+    "altText": "Sistema completo de identidade visual da startup TechStart",
+    "category": "portfolio"
+  },
+  {
+    "name": "ecommerce-modastyle-mockup.png",
+    "type": "image",
+    "url": "/assets/portfolio/ecommerce-modastyle-mockup.png",
+    "size": 1247680,
+    "title": "ModaStyle E-commerce Interface",
+    "altText": "Interface do e-commerce ModaStyle em diferentes dispositivos",
+    "category": "portfolio"
+  },
+  {
+    "name": "financecontrol-app-screens.jpg",
+    "type": "image",
+    "url": "/assets/portfolio/financecontrol-app-screens.jpg",
+    "size": 756890,
+    "title": "FinanceControl App Screens",
+    "altText": "Principais telas do aplicativo FinanceControl",
+    "category": "portfolio"
+  },
+  {
+    "name": "portfolio-presentation.pdf",
+    "type": "document",
+    "url": "/assets/documents/portfolio-presentation.pdf",
+    "size": 3456780,
+    "title": "Apresentação Portfolio 2024",
+    "altText": "Apresentação completa do portfolio de projetos 2024",
+    "category": "documentation"
+  },
+  {
+    "name": "design-process-video.mp4",
+    "type": "video",
+    "url": "/assets/videos/design-process-video.mp4",
+    "size": 15678900,
+    "title": "Processo de Design - Behind the Scenes",
+    "altText": "Vídeo mostrando o processo criativo por trás dos projetos",
+    "category": "promotional"
+  }
+]

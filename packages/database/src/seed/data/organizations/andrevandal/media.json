@@ -1,0 +1,92 @@
+[
+  {
+    "name": "react-architecture-diagram.png",
+    "type": "image",
+    "url": "/assets/blog/react-architecture-diagram.png",
+    "size": 342890,
+    "title": "React Architecture Diagram",
+    "altText": "Diagrama de arquitetura React escalável com TypeScript",
+    "category": "technical"
+  },
+  {
+    "name": "performance-optimization-chart.jpg",
+    "type": "image",
+    "url": "/assets/blog/performance-optimization-chart.jpg",
+    "size": 189456,
+    "title": "Performance Optimization Results",
+    "altText": "Gráfico mostrando melhorias de performance após otimizações",
+    "category": "technical"
+  },
+  {
+    "name": "microfrontends-architecture.svg",
+    "type": "image",
+    "url": "/assets/blog/microfrontends-architecture.svg",
+    "size": 67342,
+    "title": "Micro-frontends Architecture",
+    "altText": "Arquitetura de micro-frontends com Module Federation",
+    "category": "technical"
+  },
+  {
+    "name": "typescript-patterns-code.png",
+    "type": "image",
+    "url": "/assets/blog/typescript-patterns-code.png",
+    "size": 234567,
+    "title": "TypeScript Advanced Patterns",
+    "altText": "Exemplos de código TypeScript com padrões avançados",
+    "category": "code-samples"
+  },
+  {
+    "name": "github-actions-workflow.jpg",
+    "type": "image",
+    "url": "/assets/blog/github-actions-workflow.jpg",
+    "size": 298743,
+    "title": "GitHub Actions CI/CD Pipeline",
+    "altText": "Visualização do pipeline de CI/CD com GitHub Actions",
+    "category": "devops"
+  },
+  {
+    "name": "tailwind-setup-guide.pdf",
+    "type": "document",
+    "url": "/assets/documents/tailwind-setup-guide.pdf",
+    "size": 1456789,
+    "title": "TailwindCSS Complete Setup Guide",
+    "altText": "Guia completo de configuração do TailwindCSS",
+    "category": "documentation"
+  },
+  {
+    "name": "testing-strategy-video.mp4",
+    "type": "video",
+    "url": "/assets/videos/testing-strategy-video.mp4",
+    "size": 23456789,
+    "title": "React Testing Strategy Walkthrough",
+    "altText": "Vídeo explicativo sobre estratégias de teste em React",
+    "category": "educational"
+  },
+  {
+    "name": "jwt-auth-flow.png",
+    "type": "image",
+    "url": "/assets/blog/jwt-auth-flow.png",
+    "size": 156234,
+    "title": "JWT Authentication Flow",
+    "altText": "Fluxo de autenticação JWT com refresh tokens",
+    "category": "security"
+  },
+  {
+    "name": "monitoring-dashboard.jpg",
+    "type": "image",
+    "url": "/assets/blog/monitoring-dashboard.jpg",
+    "size": 387921,
+    "title": "Application Monitoring Dashboard",
+    "altText": "Dashboard de monitoramento com Sentry e métricas",
+    "category": "monitoring"
+  },
+  {
+    "name": "web-vitals-metrics.svg",
+    "type": "image",
+    "url": "/assets/blog/web-vitals-metrics.svg",
+    "size": 78945,
+    "title": "Core Web Vitals Metrics",
+    "altText": "Gráfico das métricas Core Web Vitals",
+    "category": "performance"
+  }
+]

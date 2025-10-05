@@ -1,0 +1,29 @@
+{
+  "extends": "../../tsconfig.options.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "rootDir": "./src",
+    "emitDeclarationOnly": true,
+    "outDir": "./dist",
+    "moduleResolution": "nodenext",
+    "baseUrl": ".",
+    "paths": {
+      ":commons/*": ["./src/commons/*"],
+      ":enums/*": ["./src/enums/*"],
+      ":env/*": ["./src/env/*"],
+      "@omero/schemas": ["../schemas/src/index.ts"],
+      "@omero/schemas/*": ["../schemas/src/*"],
+      "@omero/utils": ["../utils/src/index.ts"],
+      "@omero/utils/*": ["../utils/src/*"]
+    }
+  },
+  "include": ["src", "../schemas/**/*", "../utils/**/*"],
+  "references": [
+    {
+      "path": "../schemas"
+    },
+    {
+      "path": "../utils"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "titles": {
+      "pt": "E-commerce ModaStyle - Plataforma de Moda Online Responsiva",
+      "en": "ModaStyle E-commerce - Responsive Online Fashion Platform"
+    },
+    "content": {
+      "pt": "# ModaStyle E-commerce\n\nDesenvolvemos uma plataforma e-commerce completa para a ModaStyle, focada na experiência do usuário e otimizada para conversões.\n\n## Desafios do projeto\n\n- Interface intuitiva para navegação por milhares de produtos\n- Checkout otimizado para reduzir abandono de carrinho\n- Design responsivo para todos os dispositivos\n- Sistema de filtros avançados\n\n## Soluções implementadas\n\n- Arquitetura de informação clara e hierárquica\n- Micro-interações que melhoram a experiência\n- Loading progressivo de imagens\n- Sistema de busca inteligente com sugestões\n\n## Resultados\n\n- 35% de aumento na taxa de conversão\n- 50% de redução no abandono de carrinho\n- Tempo de carregamento 60% mais rápido\n- 95% de satisfação dos usuários mobile",
+      "en": "# ModaStyle E-commerce\n\nWe developed a complete e-commerce platform for ModaStyle, focused on user experience and optimized for conversions.\n\n## Project challenges\n\n- Intuitive interface for browsing thousands of products\n- Optimized checkout to reduce cart abandonment\n- Responsive design for all devices\n- Advanced filtering system\n\n## Implemented solutions\n\n- Clear and hierarchical information architecture\n- Micro-interactions that improve experience\n- Progressive image loading\n- Smart search system with suggestions\n\n## Results\n\n- 35% increase in conversion rate\n- 50% reduction in cart abandonment\n- 60% faster loading time\n- 95% mobile user satisfaction"
+    },
+    "visibility": "public"
+  },
+  {
+    "titles": {
+      "pt": "App FinanceControl - Aplicativo de Gestão Financeira Pessoal",
+      "en": "FinanceControl App - Personal Financial Management Application"
+    },
+    "content": {
+      "pt": "# FinanceControl - Controle Financeiro Simplificado\n\nAplicativo mobile para gestão financeira pessoal com foco na simplicidade e eficiência. Interface projetada para tornar o controle financeiro um hábito prazeroso.\n\n## Funcionalidades principais\n\n- Dashboard com visão geral das finanças\n- Categorização automática de gastos\n- Metas financeiras gamificadas\n- Relatórios visuais intuitivos\n- Sincronização multi-dispositivo\n\n## Design centrado no usuário\n\nCada tela foi prototipada e testada com usuários reais, garantindo que mesmo pessoas com dificuldades em finanças pudessem usar facilmente o app.",
+      "en": "# FinanceControl - Simplified Financial Control\n\nMobile app for personal financial management focused on simplicity and efficiency. Interface designed to make financial control a pleasurable habit.\n\n## Main features\n\n- Dashboard with finance overview\n- Automatic expense categorization\n- Gamified financial goals\n- Intuitive visual reports\n- Multi-device synchronization\n\n## User-centered design\n\nEach screen was prototyped and tested with real users, ensuring that even people with financial difficulties could easily use the app."
+    },
+    "visibility": "public"
+  },
+  {
+    "titles": {
+      "pt": "Portal Corporativo TechCorp - Sistema de Gestão Empresarial",
+      "en": "TechCorp Corporate Portal - Business Management System"
+    },
+    "content": {
+      "pt": "# TechCorp Portal Corporativo\n\nSistema web complexo para gestão empresarial integrada. Desafio de criar interface intuitiva para sistema com centenas de funcionalidades.\n\n## Arquitetura da informação\n\nOrganizamos as funcionalidades em módulos lógicos com navegação contextual, permitindo que usuários encontrem rapidamente o que precisam.\n\n## Componentes reutilizáveis\n\nDesenvolvemos um design system completo com componentes que mantêm consistência visual em todo o sistema.",
+      "en": "# TechCorp Corporate Portal\n\nComplex web system for integrated business management. Challenge of creating intuitive interface for system with hundreds of functionalities.\n\n## Information architecture\n\nWe organized functionalities into logical modules with contextual navigation, allowing users to quickly find what they need.\n\n## Reusable components\n\nWe developed a complete design system with components that maintain visual consistency throughout the system."
+    },
+    "visibility": "draft"
+  },
+  {
+    "titles": {
+      "pt": "Landing Page ConvertMax - Página de Conversão para SaaS",
+      "en": "ConvertMax Landing Page - SaaS Conversion Page"
+    },
+    "content": {
+      "pt": "# ConvertMax - Landing Page de Alta Conversão\n\nPágina desenvolvida especificamente para maximizar conversões de trial para plano pago de software SaaS de automação de marketing.\n\n## Estratégias aplicadas\n\n- Headlines persuasivas baseadas em benefícios\n- Prova social estrategicamente posicionada\n- CTA's otimizados com senso de urgência\n- Design que guia o olhar do usuário\n\n## Performance\n\nTaxa de conversão de 12.5%, superando benchmark do setor de 8.2%.",
+      "en": "# ConvertMax - High-Converting Landing Page\n\nPage developed specifically to maximize trial-to-paid conversions for marketing automation SaaS software.\n\n## Applied strategies\n\n- Persuasive headlines based on benefits\n- Strategically positioned social proof\n- Optimized CTAs with sense of urgency\n- Design that guides user's eye\n\n## Performance\n\n12.5% conversion rate, exceeding industry benchmark of 8.2%."
+    },
+    "visibility": "public"
+  },
+  {
+    "titles": {
+      "pt": "Dashboard Analytics Pro - Interface para Análise de Dados",
+      "en": "Analytics Pro Dashboard - Data Analysis Interface"
+    },
+    "content": {
+      "pt": "# Analytics Pro Dashboard\n\nInterface complexa para visualização e análise de big data. Desafio de apresentar informações densas de forma compreensível e acionável.\n\n## Visualização de dados\n\nGráficos interativos e filtros dinâmicos que permitem exploração intuitiva de grandes volumes de dados.\n\n## Personalização\n\nSistema de widgets personalizáveis que se adapta às necessidades específicas de cada usuário.",
+      "en": "# Analytics Pro Dashboard\n\nComplex interface for big data visualization and analysis. Challenge of presenting dense information in a comprehensible and actionable way.\n\n## Data visualization\n\nInteractive charts and dynamic filters that allow intuitive exploration of large data volumes.\n\n## Customization\n\nCustomizable widget system that adapts to each user's specific needs."
+    },
+    "visibility": "private"
+  },
+  {
+    "titles": {
+      "pt": "Plataforma EduTech - Sistema de Ensino Online Interativo",
+      "en": "EduTech Platform - Interactive Online Learning System"
+    },
+    "content": {
+      "pt": "# EduTech - Educação Digital Interativa\n\nPlataforma completa de ensino online com foco na experiência do estudante e ferramentas para educadores.\n\n## Recursos pedagógicos\n\nInterface que suporta diferentes tipos de conteúdo: vídeos, exercícios interativos, simuladores e avaliações gamificadas.\n\n## Acessibilidade\n\nDesign inclusivo seguindo diretrizes WCAG, garantindo acesso para estudantes com diferentes necessidades.",
+      "en": "# EduTech - Interactive Digital Education\n\nComplete online learning platform focused on student experience and educator tools.\n\n## Pedagogical features\n\nInterface supporting different content types: videos, interactive exercises, simulators and gamified assessments.\n\n## Accessibility\n\nInclusive design following WCAG guidelines, ensuring access for students with different needs."
+    },
+    "visibility": "public"
+  },
+  {
+    "titles": {
+      "pt": "App Delivery FoodFast - Aplicativo de Entrega de Comida",
+      "en": "FoodFast Delivery App - Food Delivery Application"
+    },
+    "content": {
+      "pt": "# FoodFast - Delivery Inteligente\n\nAplicativo de delivery com interface otimizada para pedidos rápidos e experiência sem fricção.\n\n## UX otimizada\n\nFluxo de pedido simplificado em 3 passos: escolher, personalizar, confirmar. Tempo médio de pedido reduzido em 40%.\n\n## Geolocalização inteligente\n\nSistema de localização precisa que facilita a entrega e melhora a experiência tanto para clientes quanto entregadores.",
+      "en": "# FoodFast - Smart Delivery\n\nDelivery app with interface optimized for quick orders and frictionless experience.\n\n## Optimized UX\n\nSimplified 3-step ordering flow: choose, customize, confirm. Average ordering time reduced by 40%.\n\n## Smart geolocation\n\nPrecise location system that facilitates delivery and improves experience for both customers and delivery drivers."
+    },
+    "visibility": "public"
+  },
+  {
+    "titles": {
+      "pt": "Portal Médico HealthPro - Sistema de Gestão Hospitalar",
+      "en": "HealthPro Medical Portal - Hospital Management System"
+    },
+    "content": {
+      "pt": "# HealthPro - Gestão Médica Eficiente\n\nSistema web para gestão hospitalar com foco na usabilidade para profissionais de saúde em ambiente de alta pressão.\n\n## Design para contexto crítico\n\nInterface limpa e objetiva que permite acesso rápido a informações vitais de pacientes sem distrações.\n\n## Workflow otimizado\n\nFluxos de trabalho desenhados com base no dia a dia de médicos e enfermeiros, reduzindo cliques desnecessários.",
+      "en": "# HealthPro - Efficient Medical Management\n\nWeb system for hospital management focused on usability for healthcare professionals in high-pressure environment.\n\n## Critical context design\n\nClean and objective interface that allows quick access to vital patient information without distractions.\n\n## Optimized workflow\n\nWorkflows designed based on doctors and nurses' daily routines, reducing unnecessary clicks."
+    },
+    "visibility": "draft"
+  },
+  {
+    "titles": {
+      "pt": "E-learning MasterClass - Plataforma de Cursos Premium",
+      "en": "MasterClass E-learning - Premium Course Platform"
+    },
+    "content": {
+      "pt": "# MasterClass - Experiência Premium de Aprendizado\n\nPlataforma de cursos online premium com interface cinematográfica e experiência imersiva de aprendizado.\n\n## Design premium\n\nInterface sofisticada que reflete a qualidade premium do conteúdo, com atenção especial à tipografia e espaçamento.\n\n## Experiência imersiva\n\nPlayer de vídeo customizado com recursos avançados e interface que desaparece para não distrair do conteúdo.",
+      "en": "# MasterClass - Premium Learning Experience\n\nPremium online course platform with cinematic interface and immersive learning experience.\n\n## Premium design\n\nSophisticated interface that reflects premium content quality, with special attention to typography and spacing.\n\n## Immersive experience\n\nCustom video player with advanced features and interface that disappears to not distract from content."
+    },
+    "visibility": "public"
+  },
+  {
+    "titles": {
+      "pt": "Marketplace B2B TradePro - Plataforma de Negócios Corporativos",
+      "en": "TradePro B2B Marketplace - Corporate Business Platform"
+    },
+    "content": {
+      "pt": "# TradePro - Marketplace B2B Inteligente\n\nPlataforma que conecta fornecedores e compradores corporativos com interface focada em eficiência e transparência nas negociações.\n\n## Gestão de relacionamentos\n\nDashboard completo para gestão de fornecedores, histórico de negociações e métricas de performance.\n\n## Processo de cotação\n\nSistema de RFQ (Request for Quote) simplificado que acelera o processo de cotação empresarial.",
+      "en": "# TradePro - Smart B2B Marketplace\n\nPlatform connecting corporate suppliers and buyers with interface focused on efficiency and transparency in negotiations.\n\n## Relationship management\n\nComplete dashboard for supplier management, negotiation history and performance metrics.\n\n## Quotation process\n\nSimplified RFQ (Request for Quote) system that accelerates corporate quotation process."
+    },
+    "visibility": "private"
+  }
+]
