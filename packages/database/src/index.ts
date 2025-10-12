@@ -1,15 +1,18 @@
-import { createClient } from "@libsql/client";
+import { createClient, type Config } from "@libsql/client";
 import { drizzle } from "drizzle-orm/libsql";
 
-import { env } from ":env";
 import * as schemas from ":schemas";
 
-const client = createClient({
-  url: env.DATABASE_URL,
-  authToken: env.DATABASE_AUTH_TOKEN,
-});
+export const createDatabase = (config: Config) => {
+  const client = createClient(config);
 
-export const db = drizzle({
-  client,
-  schema: { ...schemas },
-});
+  const db = drizzle({
+    client,
+    schema: { ...schemas },
+  });
+
+  return {
+    client,
+    db,
+  };
+};

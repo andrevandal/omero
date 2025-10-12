@@ -1,0 +1,361 @@
+// Enums
+Enum PostType {
+  article
+  page
+}
+
+Enum Visibility {
+  draft
+  private
+  public
+}
+
+Enum MediaType {
+  image
+  video
+  document
+}
+
+Enum MemberRole {
+  member
+  admin
+  owner
+}
+
+Enum InvitationStatus {
+  pending
+  accepted
+  declined
+  expired
+}
+
+Enum CustomFieldType {
+  text
+  textarea
+  boolean
+  number
+  select
+  object
+  list
+  image
+}
+
+Enum CustomFieldEntityType {
+  post
+  tag
+  media
+}
+
+// Tables
+
+Table user {
+  id text [pk]
+  name text [not null]
+  email text [not null, unique]
+  email_verified boolean [not null]
+  image text
+  preferred_language_id text [ref: > languages.id]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    email
+  }
+}
+
+Table session {
+  id text [pk]
+  expires_at timestamp [not null]
+  token text [not null, unique]
+  ip_address text
+  user_agent text
+  user_id text [ref: > user.id, not null]
+  active_organization_id text [ref: > organization.id]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    user_id
+    token
+  }
+}
+
+Table account {
+  id text [pk]
+  account_id text [not null]
+  provider_id text [not null]
+  user_id text [ref: > user.id, not null]
+  access_token text
+  refresh_token text
+  id_token text
+  access_token_expires_at timestamp
+  refresh_token_expires_at timestamp
+  scope text
+  password text
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    user_id
+  }
+}
+
+Table verification {
+  id text [pk]
+  identifier text [not null]
+  value text [not null]
+  expires_at timestamp [not null]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    identifier
+  }
+}
+
+Table organization {
+  id text [pk]
+  name text [not null]
+  slug text [unique]
+  logo text
+  settings text [not null, default: '{}']
+  created_at timestamp [not null]
+  metadata text
+
+  Indexes {
+    slug
+  }
+}
+
+Table member {
+  id text [pk]
+  organization_id text [ref: > organization.id, not null]
+  user_id text [ref: > user.id, not null]
+  role MemberRole [not null, default: 'member']
+
+  Indexes {
+    user_id
+    organization_id
+    (user_id, organization_id)
+  }
+}
+
+Table invitation {
+  id text [pk]
+  organization_id text [ref: > organization.id, not null]
+  email text [not null]
+  role MemberRole
+  status InvitationStatus [not null, default: 'pending']
+  expires_at timestamp [not null]
+  inviter_id text [ref: > user.id, not null]
+
+  Indexes {
+    email
+    organization_id
+    (email, organization_id)
+  }
+}
+
+Table apikey {
+  id text [pk]
+  name text
+  start text
+  prefix text
+  key text [not null]
+  user_id text [ref: > user.id, not null]
+  refill_interval int
+  refill_amount int
+  last_refill_at timestamp
+  enabled boolean [default: true]
+  rate_limit_enabled boolean [default: true]
+  rate_limit_time_window int [default: 86400000]
+  rate_limit_max int [default: 10]
+  request_count int
+  remaining int
+  last_request timestamp
+  expires_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+  permissions text
+  metadata text
+}
+
+Table languages {
+  id text [pk]
+  name text [not null]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+}
+
+Table posts {
+  id text [pk]
+  organization_id text [ref: > organization.id, not null]
+  type PostType [not null]
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    organization_id
+  }
+}
+
+Table posts_translations {
+  id text [pk]
+  post_id text [ref: > posts.id, not null]
+  language_id text [ref: > languages.id, not null]
+  current_revision_id text [ref: > posts_revisions.id]
+  visibility Visibility [not null]
+  published_at timestamp
+  custom_fields text [not null, default: '{}']
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    (post_id, language_id) [unique]
+  }
+}
+
+Table posts_revisions {
+  id text [pk]
+  post_id text [ref: > posts.id]
+  post_translations_id text [ref: > posts_translations.id]
+  title text [not null]
+  slug text [not null]
+  content text
+  meta_title text
+  meta_description text
+  og_tags text
+  schema_markup text
+  published_at timestamp
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    slug
+  }
+}
+
+Table tags {
+  id text [pk]
+  organization_id text [ref: > organization.id, not null]
+  featured boolean [default: false]
+  visibility Visibility [not null]
+  meta_title text
+  meta_description text
+  og_tags text
+  schema_markup text
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    organization_id
+  }
+}
+
+Table tags_translations {
+  id text [pk]
+  tag_id text [ref: > tags.id, not null]
+  language_id text [ref: > languages.id, not null]
+  current_revision_id text [ref: > tags_revisions.id]
+  visibility Visibility [not null]
+  published_at timestamp
+  custom_fields text [not null, default: '{}']
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    (tag_id, language_id) [unique]
+  }
+}
+
+Table tags_revisions {
+  id text [pk]
+  tag_id text [ref: > tags.id]
+  tag_translations_id text [ref: > tags_translations.id]
+  title text [not null]
+  slug text [not null]
+  content text
+  meta_title text
+  meta_description text
+  og_tags text
+  schema_markup text
+  published_at timestamp
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    slug
+  }
+}
+
+Table posts_tags {
+  id text [pk]
+  post_id text [ref: > posts.id]
+  tag_id text [ref: > tags.id]
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    (post_id, tag_id) [unique]
+  }
+}
+
+Table medias {
+  id text [pk]
+  organization_id text [ref: > organization.id, not null]
+  name text [not null]
+  type MediaType [not null]
+  url text [not null]
+  size int [not null]
+  title text 
+  alt_text text
+  metadata text
+  custom_fields text [not null, default: '{}']
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    organization_id
+  }
+}
+
+Table medias_tags {
+  id text [pk]
+  media_id text [ref: > medias.id]
+  tag_id text [ref: > tags.id]
+  deleted_at timestamp
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    (media_id, tag_id) [unique]
+  }
+}
+
+Table custom_field_definitions {
+  id text [pk]
+  organization_id text [ref: > organization.id, not null]
+  entity_type CustomFieldEntityType [not null]
+  field_key text [not null]
+  field_type CustomFieldType [not null]
+  required boolean [not null, default: false]
+  data text // JSON for select/radio options
+  validation text // JSON for validation rules
+  i18n boolean [not null, default: false]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+
+  Indexes {
+    (organization_id, entity_type, field_key) [unique]
+    organization_id
+    entity_type
+  }
+}

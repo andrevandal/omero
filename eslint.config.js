@@ -1,28 +1,33 @@
+import { fileURLToPath } from "node:url";
+
+import { includeIgnoreFile } from "@eslint/compat";
 import css from "@eslint/css";
 import js from "@eslint/js";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import prettierConfig from "eslint-config-prettier";
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
 import { importX, createNodeResolver } from "eslint-plugin-import-x";
 import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
 import reactPlugin from "eslint-plugin-react";
 import * as reactHooksPlugin from "eslint-plugin-react-hooks";
-import sonarjs from "eslint-plugin-sonarjs";
+import { configs as sonarjsConfigs } from "eslint-plugin-sonarjs";
 import unicorn from "eslint-plugin-unicorn";
 import globals from "globals";
 import { tailwind4 } from "tailwind-csstree";
 import * as tseslint from "typescript-eslint";
 
+const gitignorePath = fileURLToPath(new URL(".gitignore", import.meta.url));
+
 export default defineConfig(
-  {
-    ignores: [
-      "**/node_modules/**",
-      "**/coverage/**",
-      "**/build/**",
-      "**/public/**",
-      "**/.cache/**",
-    ],
-  },
+  includeIgnoreFile(gitignorePath, "Imported .gitignore patterns"),
+  globalIgnores([
+    "dist/**",
+    "**/node_modules/**",
+    "**/coverage/**",
+    "**/build/**",
+    "**/public/**",
+    "**/.cache/**",
+  ]),
 
   js.configs.recommended,
   tseslint.configs.recommended,
@@ -34,7 +39,7 @@ export default defineConfig(
   reactPlugin.configs.flat["jsx-runtime"],
   reactHooksPlugin.configs["recommended-latest"],
   jsxA11yPlugin.flatConfigs.recommended,
-  sonarjs.configs.recommended,
+  sonarjsConfigs.recommended,
   unicorn.configs.recommended,
 
   {
@@ -121,6 +126,14 @@ export default defineConfig(
 
       // Unicorn
       "unicorn/prevent-abbreviations": "off",
+      "unicorn/no-null": "off",
+
+      // Sonar
+      "sonarjs/no-hardcoded-passwords": "off",
+      "sonarjs/anchor-precedence": "warn",
+      "sonarjs/slow-regex": "warn",
+      "sonarjs/pseudo-random": "warn",
+      "sonarjs/no-commented-code": "warn",
     },
   },
 
@@ -156,6 +169,34 @@ export default defineConfig(
     },
     rules: {
       "css/no-empty-blocks": "error",
+    },
+  },
+
+  {
+    files: ["./drizzle.config.ts"],
+
+    rules: {
+      "@typescript-eslint/no-non-null-assertion": "off",
+    },
+  },
+
+  {
+    files: ["packages/custom-fields/src/**.ts"],
+
+    rules: {
+      "@typescript-eslint/no-non-null-assertion": "off",
+    },
+  },
+
+  {
+    files: ["packages/database/src/seed/**.ts"],
+
+    rules: {
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "sonarjs/anchor-precedence": "off",
+      "sonarjs/slow-regex": "off",
+      "sonarjs/pseudo-random": "off",
+      "unicorn/prefer-top-level-await": "off",
     },
   },
 

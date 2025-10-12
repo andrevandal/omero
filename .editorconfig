@@ -22,3 +22,7 @@ trim_trailing_whitespace = false
 # Makefiles must use tabs
 [Makefile]
 indent_style = tab
+
+[*.{json,yaml,yml}]
+indent_style = space
+indent_size = 2

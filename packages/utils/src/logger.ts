@@ -1,9 +1,9 @@
-import { rawEnvs } from "@omero/env";
-import { pino } from "pino";
+import { pino, type LevelWithSilentOrString } from "pino";
 
-export const logger = pino({
-  level: rawEnvs.LOG_LEVEL ?? "info",
-  transport: {
-    target: "pino-pretty",
-  },
-});
+export const createLogger = (level?: LevelWithSilentOrString) =>
+  pino({
+    level: level,
+    transport: {
+      target: "pino-pretty",
+    },
+  });

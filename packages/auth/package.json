@@ -21,18 +21,19 @@
   },
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "types": "tsc --build",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.17.0",
   "dependencies": {
-    "@omero/database": "workspace:^",
-    "@omero/env": "workspace:^",
-    "@omero/notifications": "workspace:^",
     "@omero/schemas": "workspace:^",
     "@omero/utils": "workspace:^",
     "better-auth": "^1.3.26"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   }
 }

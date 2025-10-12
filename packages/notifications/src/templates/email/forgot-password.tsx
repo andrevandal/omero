@@ -15,7 +15,7 @@ import {
 } from "@react-email/components";
 
 import { poweredByLink } from "./__components/constants.js";
-import { Logo } from "./__components/logo.js";
+import { Logo } from "./__components/ui/logo.js";
 
 export const propsSchema = v.object({
   name: v.string(),

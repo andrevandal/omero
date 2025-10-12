@@ -1,10 +1,10 @@
 import { randomBytes } from "node:crypto";
 
-import { scrypt } from "@noble/hashes/scrypt";
+import { scrypt } from "@noble/hashes/scrypt.js";
+import { enums } from "@omero/schemas";
+import { generateId } from "@omero/utils";
 import { eq } from "drizzle-orm";
 
-import { enums } from "@omero/schemas";
-import { db as database } from "../index.js";
 import {
   account,
   languages,
@@ -13,7 +13,16 @@ import {
   organization,
   posts,
   user,
+  customFieldDefinitions,
+  mediasTags,
+  organizationLanguages,
+  postsRevisions,
+  postsTags,
+  postsTranslations,
+  tags,
 } from ":schemas";
+
+import { createDatabase } from "../index.js";
 
 import {
   assignVisibility,
@@ -23,21 +32,13 @@ import {
   loadJsonData,
 } from "./utils.js";
 
-const { CUSTOM_FIELD_TYPES, VISIBILITY_TYPES } = enums;
+const { db: database } = createDatabase({
+  url: process.env.DATABASE_URL!,
+  authToken: process.env.DATABASE_AUTH_TOKEN,
+});
 
-import {
-  customFieldDefinitions,
-  mediasTags,
-  organizationLanguages,
-  postsRevisions,
-  postsTags,
-  postsTranslations,
-  tags,
-} from ":schemas";
-import { generateId } from "@omero/utils";
-
-type FieldType = (typeof CUSTOM_FIELD_TYPES)[number];
-type VisibilityType = (typeof VISIBILITY_TYPES)[number];
+type FieldType = (typeof enums.CUSTOM_FIELD_TYPES)[number];
+type VisibilityType = (typeof enums.VISIBILITY_TYPES)[number];
 
 // Types
 type UserData = {
@@ -589,5 +590,5 @@ ${usersData.map((u) => `- ${u.email} : ${u.password}`).join("\n")}
 
 main().catch((error) => {
   console.error("Seed failed:", error);
-  process.exit(1);
+  throw error;
 });

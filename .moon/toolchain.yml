@@ -1,5 +1,5 @@
 node:
-  packageManager: "pnpm"
+  packageManager: "bun"
   inferTasksFromScripts: true
 typescript:
   syncProjectReferencesToPaths: true

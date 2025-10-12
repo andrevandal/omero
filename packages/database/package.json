@@ -13,21 +13,19 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "drizzle-kit generate --config ./drizzle.config.ts",
-    "migrate": "drizzle-kit migrate --config ./drizzle.config.ts",
-    "studio": "drizzle-kit studio --config ./drizzle.config.ts",
-    "seed": "node --experimental-strip-types ./seed/index.ts"
+    "types": "tsc --build",
+    "test": "vitest"
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",
-    "@omero/env": "workspace:^",
     "@omero/schemas": "workspace:^",
     "@omero/utils": "workspace:^",
-    "add": "^2.0.6",
     "drizzle-orm": "^0.44.6"
   },
   "devDependencies": {
-    "@noble/hashes": "^2.0.1"
+    "@noble/hashes": "^2.0.1",
+    "typescript": "catalog:",
+    "@types/node": "catalog:",
+    "vitest": "catalog:"
   }
 }

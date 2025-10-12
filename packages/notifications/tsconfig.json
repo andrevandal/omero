@@ -2,58 +2,20 @@
   "extends": "../../tsconfig.react.json",
   "compilerOptions": {
     "module": "NodeNext",
-    "rootDir": "./src",
-    "emitDeclarationOnly": true,
-    "outDir": "./dist",
     "moduleResolution": "nodenext",
-    "baseUrl": ".",
+    "emitDeclarationOnly": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
     "paths": {
-      ":env": [
-        "./src/env.js"
-      ],
-      ":templates/*": [
-        "./src/templates/*"
-      ],
-      "@omero/env": [
-        "../env/src/index.ts"
-      ],
-      "@omero/env/*": [
-        "../env/src/*"
-      ],
-      "@omero/schemas": [
-        "../schemas/src/index.ts"
-      ],
-      "@omero/schemas/*": [
-        "../schemas/src/*"
-      ],
-      "@omero/utils": [
-        "../utils/src/index.ts"
-      ],
-      "@omero/utils/*": [
-        "../utils/src/*"
-      ],
-      "@omero/database": [
-        "../database/src/index.ts"
-      ],
-      "@omero/database/*": [
-        "../database/src/*"
-      ]
+      ":templates/*": ["./src/templates/*"],
+      "@omero/schemas": ["../schemas/src/index.ts"],
+      "@omero/schemas/*": ["../schemas/src/*"],
+      "@omero/utils": ["../utils/src/index.ts"],
+      "@omero/utils/*": ["../utils/src/*"]
     }
   },
-  "include": [
-    "src",
-    "../database/**/*",
-    "../env/**/*",
-    "../schemas/**/*",
-    "../utils/**/*"
-  ],
+  "include": ["src", "../utils/**/*", "../schemas/**/*"],
   "references": [
-    {
-      "path": "../database"
-    },
-    {
-      "path": "../env"
-    },
     {
       "path": "../schemas"
     },

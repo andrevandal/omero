@@ -1,11 +1,11 @@
-import { v, enums } from '@omero/schemas'
-import { camelCase } from '@omero/utils'
+import { v, enums } from "@omero/schemas";
+import { camelCase } from "@omero/utils";
 // Type guard utilities
 function isObjectWithProperty<T extends string>(
   data: unknown,
   property: T
 ): data is Record<T, unknown> {
-  return typeof data === 'object' && data !== null && property in data
+  return typeof data === "object" && data !== null && property in data;
 }
 
 function hasStringProperty<T extends string>(
@@ -13,8 +13,8 @@ function hasStringProperty<T extends string>(
   property: T
 ): data is Record<T, string> {
   return (
-    isObjectWithProperty(data, property) && typeof data[property] === 'string'
-  )
+    isObjectWithProperty(data, property) && typeof data[property] === "string"
+  );
 }
 
 function hasNumberProperty<T extends string>(
@@ -22,27 +22,27 @@ function hasNumberProperty<T extends string>(
   property: T
 ): data is Record<T, number> {
   return (
-    isObjectWithProperty(data, property) && typeof data[property] === 'number'
-  )
+    isObjectWithProperty(data, property) && typeof data[property] === "number"
+  );
 }
 
 function hasOptionalNumberProperties<T extends string>(
   data: unknown,
   ...properties: T[]
 ): data is Record<T, number | undefined> {
-  if (typeof data !== 'object' || data === null) return false
+  if (typeof data !== "object" || data === null) return false;
   return properties.every(
-    property =>
+    (property) =>
       !(property in data) ||
-      typeof (data as Record<string, unknown>)[property] === 'number'
-  )
+      typeof (data as Record<string, unknown>)[property] === "number"
+  );
 }
 
 // Helper to make schema optional based on required flag
 function makeOptional<
   T extends v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>
 >(schema: T, required: boolean) {
-  return required ? schema : v.optional(schema)
+  return required ? schema : v.optional(schema);
 }
 
 export const fieldValidationSchema = v.object({
@@ -68,8 +68,8 @@ export const fieldValidationSchema = v.object({
   minItems: v.optional(v.number()),
   maxItems: v.optional(v.number()),
   // Object
-  requiredFields: v.optional(v.array(v.string()))
-})
+  requiredFields: v.optional(v.array(v.string())),
+});
 
 export const customFieldDefinitionSchema = v.object({
   id: v.optional(v.string()),
@@ -80,47 +80,47 @@ export const customFieldDefinitionSchema = v.object({
   ),
   fieldKey: v.pipe(
     v.string(),
-    v.regex(/^[a-z_][a-z0-9_]*$/i, 'Field key must be snake_case')
+    v.regex(/^[a-z_][a-z0-9_]*$/i, "Field key must be snake_case")
   ),
   fieldType: v.picklist([
-    'text',
-    'textarea',
-    'boolean',
-    'number',
-    'select',
-    'object',
-    'list',
-    'image'
+    "text",
+    "textarea",
+    "boolean",
+    "number",
+    "select",
+    "object",
+    "list",
+    "image",
   ]),
   required: v.boolean(),
   data: v.optional(v.record(v.string(), v.unknown())),
-  validation: v.optional(fieldValidationSchema)
-})
+  validation: v.optional(fieldValidationSchema),
+});
 
 export type CustomFieldDefinition = v.InferOutput<
   typeof customFieldDefinitionSchema
->
+>;
 
-export type FieldValidation = v.InferOutput<typeof fieldValidationSchema>
+export type FieldValidation = v.InferOutput<typeof fieldValidationSchema>;
 
 /**
  * Create a Valibot schema from custom field definitions
  */
 export function createCustomFieldsSchema(
-  entityType: 'post' | 'tag' | 'media',
+  entityType: "post" | "tag" | "media",
   definitions: CustomFieldDefinition[]
 ) {
   const schemaObject: Record<
     string,
     v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>
-  > = {}
+  > = {};
 
-  for (const def of definitions.filter(d => d.entityType === entityType)) {
-    const fieldSchema = buildFieldSchema(def)
-    schemaObject[camelCase(def.fieldKey)] = fieldSchema
+  for (const def of definitions.filter((d) => d.entityType === entityType)) {
+    const fieldSchema = buildFieldSchema(def);
+    schemaObject[camelCase(def.fieldKey)] = fieldSchema;
   }
 
-  return v.object(schemaObject)
+  return v.object(schemaObject);
 }
 
 /**
@@ -130,30 +130,30 @@ function buildFieldSchema(
   def: CustomFieldDefinition
 ): v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>> {
   switch (def.fieldType) {
-    case 'text':
-    case 'textarea': {
-      return buildTextSchema(def)
+    case "text":
+    case "textarea": {
+      return buildTextSchema(def);
     }
-    case 'number': {
-      return buildNumberSchema(def)
+    case "number": {
+      return buildNumberSchema(def);
     }
-    case 'boolean': {
-      return buildBooleanSchema(def)
+    case "boolean": {
+      return buildBooleanSchema(def);
     }
-    case 'select': {
-      return buildSelectSchema(def)
+    case "select": {
+      return buildSelectSchema(def);
     }
-    case 'image': {
-      return buildImageSchema(def)
+    case "image": {
+      return buildImageSchema(def);
     }
-    case 'object': {
-      return buildObjectSchema(def)
+    case "object": {
+      return buildObjectSchema(def);
     }
-    case 'list': {
-      return buildListSchema(def)
+    case "list": {
+      return buildListSchema(def);
     }
     default: {
-      throw new Error(`Unsupported field type: ${def.fieldType}`)
+      throw new Error(`Unsupported field type: ${def.fieldType}`);
     }
   }
 }
@@ -165,27 +165,27 @@ function buildTextSchema(
   def: CustomFieldDefinition
 ): v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>> {
   const pipes: Array<v.BaseValidation<string, string, v.BaseIssue<unknown>>> =
-    []
+    [];
 
   if (def.validation?.minLength !== undefined) {
-    pipes.push(v.minLength(def.validation.minLength))
+    pipes.push(v.minLength(def.validation.minLength));
   }
   if (def.validation?.maxLength !== undefined) {
-    pipes.push(v.maxLength(def.validation.maxLength))
+    pipes.push(v.maxLength(def.validation.maxLength));
   }
   if (def.validation?.email) {
-    pipes.push(v.email())
+    pipes.push(v.email());
   }
   if (def.validation?.url) {
-    pipes.push(v.url())
+    pipes.push(v.url());
   }
   if (def.validation?.pattern) {
-    pipes.push(v.regex(new RegExp(def.validation.pattern)))
+    pipes.push(v.regex(new RegExp(def.validation.pattern)));
   }
 
-  const schema = pipes.length > 0 ? v.pipe(v.string(), ...pipes) : v.string()
+  const schema = pipes.length > 0 ? v.pipe(v.string(), ...pipes) : v.string();
 
-  return makeOptional(schema, def.required)
+  return makeOptional(schema, def.required);
 }
 
 /**
@@ -195,24 +195,24 @@ function buildNumberSchema(
   def: CustomFieldDefinition
 ): v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>> {
   const pipes: Array<v.BaseValidation<number, number, v.BaseIssue<unknown>>> =
-    []
+    [];
 
   if (def.validation?.min !== undefined) {
-    pipes.push(v.minValue(def.validation.min))
+    pipes.push(v.minValue(def.validation.min));
   }
   if (def.validation?.max !== undefined) {
-    pipes.push(v.maxValue(def.validation.max))
+    pipes.push(v.maxValue(def.validation.max));
   }
   if (def.validation?.int) {
-    pipes.push(v.integer())
+    pipes.push(v.integer());
   }
   if (def.validation?.positive) {
-    pipes.push(v.minValue(0))
+    pipes.push(v.minValue(0));
   }
 
-  const schema = pipes.length > 0 ? v.pipe(v.number(), ...pipes) : v.number()
+  const schema = pipes.length > 0 ? v.pipe(v.number(), ...pipes) : v.number();
 
-  return makeOptional(schema, def.required)
+  return makeOptional(schema, def.required);
 }
 
 /**
@@ -221,8 +221,8 @@ function buildNumberSchema(
 function buildBooleanSchema(
   def: CustomFieldDefinition
 ): v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>> {
-  const schema = v.boolean()
-  return makeOptional(schema, def.required)
+  const schema = v.boolean();
+  return makeOptional(schema, def.required);
 }
 
 /**
@@ -231,14 +231,14 @@ function buildBooleanSchema(
 function buildSelectSchema(
   def: CustomFieldDefinition
 ): v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>> {
-  const values = def.data?.values || def.validation?.values || []
+  const values = def.data?.values || def.validation?.values || [];
 
   if (!Array.isArray(values) || values.length === 0) {
-    throw new Error(`Select field '${def.fieldKey}' must have values defined`)
+    throw new Error(`Select field '${def.fieldKey}' must have values defined`);
   }
 
-  const schema = v.picklist(values as [string, ...string[]])
-  return makeOptional(schema, def.required)
+  const schema = v.picklist(values as [string, ...string[]]);
+  return makeOptional(schema, def.required);
 }
 
 /**
@@ -252,8 +252,8 @@ function buildImageSchema(
     type: v.string(),
     size: v.number(),
     width: v.optional(v.number()),
-    height: v.optional(v.number())
-  })
+    height: v.optional(v.number()),
+  });
 
   const validations: Array<
     v.BaseValidation<
@@ -261,46 +261,46 @@ function buildImageSchema(
       v.InferOutput<typeof baseSchema>,
       v.BaseIssue<unknown>
     >
-  > = []
+  > = [];
 
   if (def.validation?.allowedTypes) {
     validations.push(
       v.check(
-        data =>
-          hasStringProperty(data, 'type') &&
+        (data) =>
+          hasStringProperty(data, "type") &&
           def.validation!.allowedTypes!.includes(data.type),
-        `Image type must be one of: ${def.validation.allowedTypes.join(', ')}`
+        `Image type must be one of: ${def.validation.allowedTypes.join(", ")}`
       )
-    )
+    );
   }
 
   if (def.validation?.maxSize) {
     validations.push(
       v.check(
-        data =>
-          hasNumberProperty(data, 'size') &&
+        (data) =>
+          hasNumberProperty(data, "size") &&
           data.size <= def.validation!.maxSize!,
         `Image size must be less than ${def.validation.maxSize} bytes`
       )
-    )
+    );
   }
 
   if (def.validation?.maxWidth && def.validation?.maxHeight) {
     validations.push(
       v.check(
-        data =>
-          hasOptionalNumberProperties(data, 'width', 'height') &&
+        (data) =>
+          hasOptionalNumberProperties(data, "width", "height") &&
           (data.width || 0) <= def.validation!.maxWidth! &&
           (data.height || 0) <= def.validation!.maxHeight!,
         `Image dimensions must be ${def.validation.maxWidth}x${def.validation.maxHeight} or smaller`
       )
-    )
+    );
   }
 
   const schema =
-    validations.length > 0 ? v.pipe(baseSchema, ...validations) : baseSchema
+    validations.length > 0 ? v.pipe(baseSchema, ...validations) : baseSchema;
 
-  return makeOptional(schema, def.required)
+  return makeOptional(schema, def.required);
 }
 
 /**
@@ -312,14 +312,14 @@ function buildObjectSchema(
   const nestedSchema: Record<
     string,
     v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>
-  > = {}
+  > = {};
 
   for (const [key, fieldDef] of Object.entries(def.data?.schema || {})) {
-    nestedSchema[key] = buildFieldSchema(fieldDef as CustomFieldDefinition)
+    nestedSchema[key] = buildFieldSchema(fieldDef as CustomFieldDefinition);
   }
 
-  const schema = v.object(nestedSchema)
-  return makeOptional(schema, def.required)
+  const schema = v.object(nestedSchema);
+  return makeOptional(schema, def.required);
 }
 
 /**
@@ -329,26 +329,26 @@ function buildListSchema(
   def: CustomFieldDefinition
 ): v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>> {
   const itemType =
-    typeof def?.data?.itemType === 'string' ? `${def?.data?.itemType}` : 'text'
-  const itemSchema = buildItemSchema(itemType, def.data?.itemSchema)
+    typeof def?.data?.itemType === "string" ? `${def?.data?.itemType}` : "text";
+  const itemSchema = buildItemSchema(itemType, def.data?.itemSchema);
 
   const pipes: Array<
     v.BaseValidation<unknown[], unknown[], v.BaseIssue<unknown>>
-  > = []
+  > = [];
 
   if (def.validation?.minItems !== undefined) {
-    pipes.push(v.minLength(def.validation.minItems))
+    pipes.push(v.minLength(def.validation.minItems));
   }
   if (def.validation?.maxItems !== undefined) {
-    pipes.push(v.maxLength(def.validation.maxItems))
+    pipes.push(v.maxLength(def.validation.maxItems));
   }
 
   const schema =
     pipes.length > 0
       ? v.pipe(v.array(itemSchema), ...pipes)
-      : v.array(itemSchema)
+      : v.array(itemSchema);
 
-  return makeOptional(schema, def.required)
+  return makeOptional(schema, def.required);
 }
 
 /**
@@ -358,23 +358,23 @@ function buildItemSchema(
   itemType: string,
   itemSchema?: unknown
 ): v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>> {
-  if (itemType === 'object' && itemSchema) {
-    return buildFieldSchema(itemSchema as CustomFieldDefinition)
+  if (itemType === "object" && itemSchema) {
+    return buildFieldSchema(itemSchema as CustomFieldDefinition);
   }
 
   switch (itemType) {
-    case 'text':
-    case 'textarea': {
-      return v.string()
+    case "text":
+    case "textarea": {
+      return v.string();
     }
-    case 'number': {
-      return v.number()
+    case "number": {
+      return v.number();
     }
-    case 'boolean': {
-      return v.boolean()
+    case "boolean": {
+      return v.boolean();
     }
     default: {
-      return v.string()
+      return v.string();
     }
   }
 }
@@ -385,5 +385,5 @@ function buildItemSchema(
 export function validateCustomFields<
   T extends v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>
 >(data: unknown, schema: T): v.SafeParseResult<T> {
-  return v.safeParse(schema, data)
+  return v.safeParse(schema, data);
 }

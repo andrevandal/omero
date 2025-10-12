@@ -1,20 +1,19 @@
-import { emailOTPClient, organizationClient } from 'better-auth/client/plugins'
-import { createAuthClient } from 'better-auth/react'
+import { emailOTPClient, organizationClient } from "better-auth/client/plugins";
+import { createAuthClient as createAuthClientFn } from "better-auth/react";
 
-import { ac, admin, member, owner } from './permissions.js'
+import { ac, admin, member, owner } from "./permissions.js";
 
-export const authClient: ReturnType<typeof createAuthClient> = createAuthClient(
-  {
+export const createAuthClient: ReturnType<typeof createAuthClientFn> =
+  createAuthClientFn({
     plugins: [
       organizationClient({
         ac,
         roles: {
           owner,
           admin,
-          member
-        }
+          member,
+        },
       }),
-      emailOTPClient()
-    ]
-  }
-)
+      emailOTPClient(),
+    ],
+  });

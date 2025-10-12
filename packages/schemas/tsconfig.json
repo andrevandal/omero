@@ -2,15 +2,14 @@
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "module": "NodeNext",
-    "rootDir": "./src",
-    "emitDeclarationOnly": true,
-    "outDir": "./dist",
     "moduleResolution": "nodenext",
+    "emitDeclarationOnly": true,
+    "rootDir": "src",
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       ":commons/*": ["./src/commons/*"],
-      ":enums/*": ["./src/enums/*"],
-      ":env/*": ["./src/env/*"]
+      ":enums/*": ["./src/enums/*"]
     }
   },
   "include": ["src"],

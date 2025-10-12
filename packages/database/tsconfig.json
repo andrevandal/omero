@@ -1,8 +1,9 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
+    "types": ["@types/node"],
     "module": "NodeNext",
-    "rootDir": ".",
+    "rootDir": "./src",
     "emitDeclarationOnly": true,
     "outDir": "./dist",
     "moduleResolution": "NodeNext",
@@ -10,26 +11,14 @@
     "paths": {
       ":schemas": ["./src/schemas/index.js"],
       ":seed/*": ["./src/seed/*"],
-      ":env": ["./src/env.js"],
-      "@omero/env": ["../env/src/index.ts"],
-      "@omero/env/*": ["../env/src/*"],
       "@omero/schemas": ["../schemas/src/index.ts"],
       "@omero/schemas/*": ["../schemas/src/*"],
       "@omero/utils": ["../utils/src/index.ts"],
       "@omero/utils/*": ["../utils/src/*"]
     }
   },
-  "include": [
-    "drizzle.config.ts",
-    "src",
-    "../env/**/*",
-    "../schemas/**/*",
-    "../utils/**/*"
-  ],
+  "include": ["src", "../schemas/**/*", "../utils/**/*"],
   "references": [
-    {
-      "path": "../env"
-    },
     {
       "path": "../schemas"
     },

@@ -8,9 +8,6 @@
     "moduleResolution": "nodenext",
     "baseUrl": ".",
     "paths": {
-      ":commons/*": ["./src/commons/*"],
-      ":enums/*": ["./src/enums/*"],
-      ":env/*": ["./src/env/*"],
       "@omero/schemas": ["../schemas/src/index.ts"],
       "@omero/schemas/*": ["../schemas/src/*"],
       "@omero/utils": ["../utils/src/index.ts"],
